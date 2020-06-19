@@ -9,7 +9,6 @@ import sys
 #
 # Authors: Ethan Visscher
 
-
 def setup_btns():
     ui.data_btn.clicked.connect(data_btn_clicked)
     ui.camera_btn.clicked.connect(camera_btn_clicked)
@@ -18,7 +17,6 @@ def setup_btns():
 def data_btn_clicked():
     serial_reader.start_stop_reading()
     ui.data_btn.setText("Stop") if serial_reader.reading_data else ui.data_btn.setText("Start")
-    update_text()
 
 
 def camera_btn_clicked():
@@ -27,18 +25,19 @@ def camera_btn_clicked():
 
 
 def update_text():
-    serial_reader.get_data(rocket_data)
-    rocket_data.save_data()
+    if serial_reader.reading_data:
+        serial_reader.get_data(rocket_data)
+        rocket_data.save_data()
 
-    ui.alt_label.setText(f'{rocket_data.alt}')
-    ui.spd_label.setText(f'{rocket_data.spd}')
-    ui.gforce_label.setText(f'{rocket_data.gforce}')
-    ui.pressure_label.setText(f'{rocket_data.pressure}')
-    ui.bat_temp_label.setText(f'{rocket_data.bat_temp}')
-    ui.cubesat_temp_label.setText(f'{rocket_data.cube_temp}')
-    ui.motor_temp_label.setText(f'{rocket_data.motor_temp}')
-    ui.bat_temp_label.setText(f'{rocket_data.bat_temp}')
-    ui.gps_label.setText(f'{rocket_data.gps_lat}, {rocket_data.gps_long}')
+        ui.alt_label.setText(f'{rocket_data.alt}')
+        ui.spd_label.setText(f'{rocket_data.spd}')
+        ui.gforce_label.setText(f'{rocket_data.gforce}')
+        ui.pressure_label.setText(f'{rocket_data.pressure}')
+        ui.bat_temp_label.setText(f'{rocket_data.bat_temp}')
+        ui.cubesat_temp_label.setText(f'{rocket_data.cube_temp}')
+        ui.motor_temp_label.setText(f'{rocket_data.motor_temp}')
+        ui.bat_temp_label.setText(f'{rocket_data.bat_temp}')
+        ui.gps_label.setText(f'{rocket_data.gps_lat}, {rocket_data.gps_long}')
 
 
 if __name__ == "__main__":
@@ -50,7 +49,10 @@ if __name__ == "__main__":
     serial_reader = SerialReader()
     rocket_data = RocketData()
     setup_btns()
-    update_text()
+
+    timer = QtCore.QTimer()
+    timer.start(200)
+    timer.timeout.connect(update_text)
 
     MainWindow.show()
     sys.exit(app.exec_())

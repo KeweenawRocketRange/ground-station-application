@@ -60,7 +60,7 @@ class RocketData:
     # Data is written in a way that another part of the ground station can read, not necessarily human-readable.
     def save_data(self):
         # Save instantaneous data
-        with open('instant_rocket_data.txt', 'a') as f:
+        with open('saved-data/instant_rocket_data.txt', 'a') as f:
             f.write(f'{self.time};'
                     f'{self.alt};'
                     f'{self.spd};'
@@ -74,7 +74,7 @@ class RocketData:
             f.close()
 
         # Save maximum data
-        with open('max_rocket_data.txt', 'w') as f:
+        with open('saved-data/max_rocket_data.txt', 'w') as f:
             f.write(f'{self.max_alt};'
                     f'{self.max_spd};'
                     f'{self.max_gforce};'
