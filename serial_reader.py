@@ -11,6 +11,8 @@ class SerialReader:
         self.ser = None
         self.reading_data = False
         self.camera_recording = False
+        self.foo = 1
+        self.msg = ''
 
     # Function used to grab serial data from Ardunio, decode it, and put all the data in the RocketData object
     #
@@ -27,25 +29,42 @@ class SerialReader:
                 rocket_data.update_data(alt=arr[0], spd=arr[1], gforce=arr[2], pressure=arr[3],
                                         bat_temp=arr[4], cube_temp=arr[5], motor_temp=arr[6],
                                         gps_lat=arr[7], gps_long=arr[8])
-
             except UnicodeDecodeError:
-                print('Could not decode that bih')
+                self.msg = 'Serial data could not be decoded'
 
     # Establish serial connection if not made already
+    #
+    # Return: True if connection establish and False if connection failed
     def start_serial(self):
         try:
             if self.ser is None:
                 self.ser = serial.Serial('COM3', 9600)
-                print("Microcontroller sucessfully connected :D")
+            self.msg = 'Serial connection secured at COM3 port with 9600 baud rate'
+            return True
         except Exception:
-            print("Microcontroller failed to connect D:")
+            self.msg = "Serial connection failed to connect at COM3 port with 9600 baud rate"
+            return False
 
     # Start/Stop taking information from the Arduino
     def start_stop_reading(self):
-        self.reading_data = not self.reading_data
-        self.start_serial() if self.reading_data else None
+        if not self.reading_data:
+            if self.start_serial():
+                self.reading_data = True
+                self.msg = 'Started reading serial data'
+        else:
+            self.reading_data = False
+            self.msg = 'Stopped reading serial data'
 
     # Tell the Arduino to start the camera
     def start_stop_camera(self):
-        self.camera_recording = not self.camera_recording
-        self.start_serial() if self.camera_recording else None
+        if not self.camera_recording:
+            if self.start_serial():
+                self.camera_recording = True
+                self.msg = 'Camera has been started'
+        else:
+            self.camera_recording = False
+            self.msg = 'Camera has been stopped'
+
+        if self.ser is not None:
+            self.foo += 1
+            self.ser.write(f'{self.foo}'.encode())

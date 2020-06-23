@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1245</width>
-    <height>821</height>
+    <width>1193</width>
+    <height>861</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,6 +38,58 @@
       <property name="verticalSpacing">
        <number>85</number>
       </property>
+      <item row="2" column="2">
+       <widget class="QWidget" name="gridWidget" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: white;
+border-radius: 1.5em;
+max-height: 12em;</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="0" column="1">
+          <widget class="QLabel" name="gps_label">
+           <property name="styleSheet">
+            <string notr="true">font: 75 19pt &quot;MS Sans Serif&quot;;
+
+</string>
+           </property>
+           <property name="text">
+            <string>0.0, 0.0</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>gps.png</pixmap>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
       <item row="0" column="2">
        <widget class="QWidget" name="gridWidget" native="true">
         <property name="styleSheet">
@@ -127,12 +179,12 @@ max-height: 20em;</string>
          <item row="1" column="1" rowspan="2">
           <widget class="QLabel" name="alt_label">
            <property name="styleSheet">
-            <string notr="true">font: 75 32pt &quot;MS Sans Serif&quot;;
+            <string notr="true">font: 75 30pt &quot;MS Sans Serif&quot;;
 
 </string>
            </property>
            <property name="text">
-            <string>9,000</string>
+            <string>0</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -165,22 +217,6 @@ padding: -2em;
 max-width: 30em;</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_5">
-         <item row="9" column="0">
-          <spacer name="verticalSpacer_17">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Minimum</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
          <item row="8" column="0">
           <widget class="QLabel" name="label_13">
            <property name="styleSheet">
@@ -210,31 +246,51 @@ max-width: 30em;</string>
            </property>
           </spacer>
          </item>
+         <item row="9" column="0">
+          <spacer name="verticalSpacer_17">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Minimum</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
          <item row="3" column="0">
           <widget class="QLabel" name="bat_temp_label">
            <property name="styleSheet">
-            <string notr="true">font: 75 32pt &quot;MS Sans Serif&quot;;
+            <string notr="true">font: 75 30pt &quot;MS Sans Serif&quot;;
+
 </string>
            </property>
            <property name="text">
-            <string>102</string>
+            <string>0°F</string>
            </property>
            <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
            </property>
           </widget>
          </item>
          <item row="7" column="0">
           <widget class="QLabel" name="motor_temp_label">
+           <property name="cursor">
+            <cursorShape>ArrowCursor</cursorShape>
+           </property>
            <property name="styleSheet">
-            <string notr="true">font: 32pt &quot;Bahnschrift SemiBold&quot;;
+            <string notr="true">font: 75 30pt &quot;MS Sans Serif&quot;;
 </string>
            </property>
            <property name="text">
-            <string>120</string>
+            <string>0°F</string>
            </property>
            <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
            </property>
           </widget>
          </item>
@@ -264,20 +320,6 @@ max-width: 30em;</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="cubesat_temp_label">
-           <property name="styleSheet">
-            <string notr="true">font: 32pt &quot;Bahnschrift SemiBold&quot;;
-</string>
-           </property>
-           <property name="text">
-            <string>75</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignHCenter|Qt::AlignTop</set>
-           </property>
-          </widget>
-         </item>
          <item row="2" column="0">
           <spacer name="verticalSpacer_19">
            <property name="orientation">
@@ -293,6 +335,20 @@ max-width: 30em;</string>
             </size>
            </property>
           </spacer>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="cubesat_temp_label">
+           <property name="styleSheet">
+            <string notr="true">font: 75 30pt &quot;MS Sans Serif&quot;;
+</string>
+           </property>
+           <property name="text">
+            <string>0°F</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+           </property>
+          </widget>
          </item>
          <item row="6" column="0">
           <widget class="QLabel" name="label_18">
@@ -311,7 +367,7 @@ max-width: 30em;</string>
         </layout>
        </widget>
       </item>
-      <item row="1" column="4">
+      <item row="1" column="3">
        <widget class="QWidget" name="gridWidget" native="true">
         <property name="styleSheet">
          <string notr="true">background-color: white;
@@ -369,11 +425,12 @@ border-radius: 3em;</string>
          <item row="1" column="1">
           <widget class="QLabel" name="spd_label">
            <property name="styleSheet">
-            <string notr="true">font: 32pt &quot;Bahnschrift SemiBold&quot;;
+            <string notr="true">font: 75 30pt &quot;MS Sans Serif&quot;;
+
 </string>
            </property>
            <property name="text">
-            <string>304</string>
+            <string>0</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -422,62 +479,11 @@ border-radius: 3em;</string>
         </layout>
        </widget>
       </item>
-      <item row="2" column="2">
-       <widget class="QWidget" name="gridWidget" native="true">
-        <property name="styleSheet">
-         <string notr="true">background-color: white;
-border-radius: 1.5em;
-max-height: 12em;</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_6">
-         <item row="0" column="1">
-          <widget class="QLabel" name="gps_label">
-           <property name="styleSheet">
-            <string notr="true">font: 20pt &quot;Bahnschrift SemiBold&quot;;
-</string>
-           </property>
-           <property name="text">
-            <string>1203023</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap>gps.png</pixmap>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="2" column="4">
+      <item row="2" column="3">
        <widget class="QWidget" name="gridWidget_2" native="true">
         <property name="styleSheet">
          <string notr="true">background-color: white;
-border-radius: 5em;
+border-radius: 3em;
 max-height: 10em;</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_7">
@@ -650,11 +656,11 @@ max-height: 20em;</string>
          <item row="1" column="1">
           <widget class="QLabel" name="pressure_label">
            <property name="styleSheet">
-            <string notr="true">font: 32pt &quot;Bahnschrift SemiBold&quot;;
+            <string notr="true">font: 75 30pt &quot;MS Sans Serif&quot;;
 </string>
            </property>
            <property name="text">
-            <string>50</string>
+            <string>0</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -709,7 +715,7 @@ max-height: 20em;</string>
         </layout>
        </widget>
       </item>
-      <item row="0" column="4">
+      <item row="0" column="3">
        <widget class="QWidget" name="gridWidget" native="true">
         <property name="styleSheet">
          <string notr="true">background-color: white;
@@ -807,15 +813,45 @@ max-width: 32.5em;</string>
          <item row="2" column="1">
           <widget class="QLabel" name="gforce_label">
            <property name="styleSheet">
-            <string notr="true">font: 32pt &quot;Bahnschrift SemiBold&quot;;
+            <string notr="true">font: 75 30pt &quot;MS Sans Serif&quot;;
+
 </string>
            </property>
            <property name="text">
-            <string>3.7</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
         </layout>
+       </widget>
+      </item>
+      <item row="3" column="2" colspan="2">
+       <widget class="QLabel" name="term_label">
+        <property name="styleSheet">
+         <string notr="true">background-color: white;
+font: 25 14pt &quot;Bahnschrift Light&quot;;
+padding: 0 .5em;
+border-radius: 10px;</string>
+        </property>
+        <property name="text">
+         <string>Connection Secure!</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="test_btn">
+        <property name="styleSheet">
+         <string notr="true">background-color: white;
+font: 25 14pt &quot;Bahnschrift Light&quot;;
+margin: 0 2.5em;
+padding: .1em 0;</string>
+        </property>
+        <property name="text">
+         <string>Test Connection</string>
+        </property>
        </widget>
       </item>
      </layout>
