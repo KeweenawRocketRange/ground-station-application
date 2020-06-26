@@ -39,10 +39,10 @@ class SerialReader:
         try:
             if self.ser is None:
                 self.ser = serial.Serial('COM3', 9600)
-            self.msg = 'Serial connection secured at COM3 port with 9600 baud rate'
+            self.msg = 'Serial connection secured at COM3 port with a baud rate of 9600'
             return True
         except Exception:
-            self.msg = "Serial connection failed to connect at COM3 port with 9600 baud rate"
+            self.msg = "Serial connection failed to connect at COM3 port with a baud rate of 9600"
             return False
 
     # Start/Stop taking information from the Arduino

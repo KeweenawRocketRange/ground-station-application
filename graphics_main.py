@@ -27,15 +27,15 @@ class Ui_MainWindow(object):
         self.main_grid.setObjectName("main_grid")
         self.gridWidget = QtWidgets.QWidget(self.central_widget)
         self.gridWidget.setStyleSheet("background-color: white;\n"
-"border-radius: 1.5em;\n"
-"max-height: 12em;")
+                                      "border-radius: 1.5em;\n"
+                                      "max-height: 12em;")
         self.gridWidget.setObjectName("gridWidget")
         self.gridLayout_6 = QtWidgets.QGridLayout(self.gridWidget)
         self.gridLayout_6.setObjectName("gridLayout_6")
         self.gps_label = QtWidgets.QLabel(self.gridWidget)
         self.gps_label.setStyleSheet("font: 75 19pt \"MS Sans Serif\";\n"
-"\n"
-"")
+                                     "\n"
+                                     "")
         self.gps_label.setObjectName("gps_label")
         self.gridLayout_6.addWidget(self.gps_label, 0, 1, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.gridWidget)
@@ -49,9 +49,9 @@ class Ui_MainWindow(object):
         self.main_grid.addWidget(self.gridWidget, 2, 2, 1, 1)
         self.gridWidget1 = QtWidgets.QWidget(self.central_widget)
         self.gridWidget1.setStyleSheet("background-color: white;\n"
-"border-radius: 3em;\n"
-"max-width: 32.5em;\n"
-"max-height: 20em;")
+                                       "border-radius: 3em;\n"
+                                       "max-width: 32.5em;\n"
+                                       "max-height: 20em;")
         self.gridWidget1.setObjectName("gridWidget1")
         self.gridLayout = QtWidgets.QGridLayout(self.gridWidget1)
         self.gridLayout.setObjectName("gridLayout")
@@ -71,29 +71,29 @@ class Ui_MainWindow(object):
         self.gridLayout.addItem(spacerItem4, 0, 1, 1, 1)
         self.alt_label = QtWidgets.QLabel(self.gridWidget1)
         self.alt_label.setStyleSheet("font: 75 30pt \"MS Sans Serif\";\n"
-"\n"
-"")
-        self.alt_label.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+                                     "\n"
+                                     "")
+        self.alt_label.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft)
         self.alt_label.setObjectName("alt_label")
         self.gridLayout.addWidget(self.alt_label, 1, 1, 2, 1)
         self.label = QtWidgets.QLabel(self.gridWidget1)
         self.label.setStyleSheet("font: 25 16pt \"Bahnschrift Light\";")
-        self.label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 3, 1, 2, 1)
         self.main_grid.addWidget(self.gridWidget1, 0, 2, 1, 1)
         self.gridWidget2 = QtWidgets.QWidget(self.central_widget)
         self.gridWidget2.setStyleSheet("background-color: white;\n"
-"border-radius: 3em;\n"
-"margin: .5em 4em;\n"
-"padding: -2em;\n"
-"max-width: 30em;")
+                                       "border-radius: 3em;\n"
+                                       "margin: .5em 4em;\n"
+                                       "padding: -2em;\n"
+                                       "max-width: 30em;")
         self.gridWidget2.setObjectName("gridWidget2")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.gridWidget2)
         self.gridLayout_5.setObjectName("gridLayout_5")
         self.label_13 = QtWidgets.QLabel(self.gridWidget2)
         self.label_13.setStyleSheet("font: 25 16pt \"Bahnschrift Light\";")
-        self.label_13.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_13.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
         self.label_13.setObjectName("label_13")
         self.gridLayout_5.addWidget(self.label_13, 8, 0, 1, 1)
         spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
@@ -102,21 +102,21 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addItem(spacerItem6, 9, 0, 1, 1)
         self.bat_temp_label = QtWidgets.QLabel(self.gridWidget2)
         self.bat_temp_label.setStyleSheet("font: 75 30pt \"MS Sans Serif\";\n"
-"\n"
-"")
-        self.bat_temp_label.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
+                                          "\n"
+                                          "")
+        self.bat_temp_label.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignHCenter)
         self.bat_temp_label.setObjectName("bat_temp_label")
         self.gridLayout_5.addWidget(self.bat_temp_label, 3, 0, 1, 1)
         self.motor_temp_label = QtWidgets.QLabel(self.gridWidget2)
         self.motor_temp_label.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.motor_temp_label.setStyleSheet("font: 75 30pt \"MS Sans Serif\";\n"
-"")
-        self.motor_temp_label.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
+                                            "")
+        self.motor_temp_label.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignHCenter)
         self.motor_temp_label.setObjectName("motor_temp_label")
         self.gridLayout_5.addWidget(self.motor_temp_label, 7, 0, 1, 1)
         self.label_15 = QtWidgets.QLabel(self.gridWidget2)
         self.label_15.setStyleSheet("font: 25 16pt \"Bahnschrift Light\";")
-        self.label_15.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_15.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
         self.label_15.setObjectName("label_15")
         self.gridLayout_5.addWidget(self.label_15, 4, 0, 1, 1)
         self.label_16 = QtWidgets.QLabel(self.gridWidget2)
@@ -129,20 +129,20 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addItem(spacerItem7, 2, 0, 1, 1)
         self.cubesat_temp_label = QtWidgets.QLabel(self.gridWidget2)
         self.cubesat_temp_label.setStyleSheet("font: 75 30pt \"MS Sans Serif\";\n"
-"")
-        self.cubesat_temp_label.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
+                                              "")
+        self.cubesat_temp_label.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignHCenter)
         self.cubesat_temp_label.setObjectName("cubesat_temp_label")
         self.gridLayout_5.addWidget(self.cubesat_temp_label, 5, 0, 1, 1)
         self.label_18 = QtWidgets.QLabel(self.gridWidget2)
         self.label_18.setStyleSheet("font: 25 16pt \"Bahnschrift Light\";\n"
-"")
-        self.label_18.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+                                    "")
+        self.label_18.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
         self.label_18.setObjectName("label_18")
         self.gridLayout_5.addWidget(self.label_18, 6, 0, 1, 1)
         self.main_grid.addWidget(self.gridWidget2, 0, 1, 3, 1)
         self.gridWidget3 = QtWidgets.QWidget(self.central_widget)
         self.gridWidget3.setStyleSheet("background-color: white;\n"
-"border-radius: 3em;")
+                                       "border-radius: 3em;")
         self.gridWidget3.setObjectName("gridWidget3")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.gridWidget3)
         self.gridLayout_4.setObjectName("gridLayout_4")
@@ -154,9 +154,9 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addItem(spacerItem10, 4, 0, 1, 1)
         self.spd_label = QtWidgets.QLabel(self.gridWidget3)
         self.spd_label.setStyleSheet("font: 75 30pt \"MS Sans Serif\";\n"
-"\n"
-"")
-        self.spd_label.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+                                     "\n"
+                                     "")
+        self.spd_label.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft)
         self.spd_label.setObjectName("spd_label")
         self.gridLayout_4.addWidget(self.spd_label, 1, 1, 1, 1)
         spacerItem11 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
@@ -174,8 +174,8 @@ class Ui_MainWindow(object):
         self.main_grid.addWidget(self.gridWidget3, 1, 3, 1, 1)
         self.gridWidget_2 = QtWidgets.QWidget(self.central_widget)
         self.gridWidget_2.setStyleSheet("background-color: white;\n"
-"border-radius: 3em;\n"
-"max-height: 10em;")
+                                        "border-radius: 3em;\n"
+                                        "max-height: 10em;")
         self.gridWidget_2.setObjectName("gridWidget_2")
         self.gridLayout_7 = QtWidgets.QGridLayout(self.gridWidget_2)
         self.gridLayout_7.setObjectName("gridLayout_7")
@@ -210,8 +210,8 @@ class Ui_MainWindow(object):
         self.main_grid.addWidget(self.gridWidget_2, 2, 3, 1, 1)
         self.gridWidget4 = QtWidgets.QWidget(self.central_widget)
         self.gridWidget4.setStyleSheet("background-color: white;\n"
-"border-radius: 3em;\n"
-"max-height: 20em;")
+                                       "border-radius: 3em;\n"
+                                       "max-height: 20em;")
         self.gridWidget4.setObjectName("gridWidget4")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.gridWidget4)
         self.gridLayout_2.setObjectName("gridLayout_2")
@@ -221,13 +221,13 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addItem(spacerItem17, 0, 1, 1, 1)
         self.label_6 = QtWidgets.QLabel(self.gridWidget4)
         self.label_6.setStyleSheet("font: 25 16pt \"Bahnschrift Light\";")
-        self.label_6.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_6.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_6.setObjectName("label_6")
         self.gridLayout_2.addWidget(self.label_6, 2, 1, 1, 1)
         self.pressure_label = QtWidgets.QLabel(self.gridWidget4)
         self.pressure_label.setStyleSheet("font: 75 30pt \"MS Sans Serif\";\n"
-"")
-        self.pressure_label.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+                                          "")
+        self.pressure_label.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft)
         self.pressure_label.setObjectName("pressure_label")
         self.gridLayout_2.addWidget(self.pressure_label, 1, 1, 1, 1)
         self.label_4 = QtWidgets.QLabel(self.gridWidget4)
@@ -243,8 +243,8 @@ class Ui_MainWindow(object):
         self.main_grid.addWidget(self.gridWidget4, 1, 2, 1, 1)
         self.gridWidget5 = QtWidgets.QWidget(self.central_widget)
         self.gridWidget5.setStyleSheet("background-color: white;\n"
-"border-radius: 3em;\n"
-"max-width: 32.5em;")
+                                       "border-radius: 3em;\n"
+                                       "max-width: 32.5em;")
         self.gridWidget5.setObjectName("gridWidget5")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.gridWidget5)
         self.gridLayout_3.setObjectName("gridLayout_3")
@@ -268,24 +268,24 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.label_7, 1, 0, 3, 1)
         self.gforce_label = QtWidgets.QLabel(self.gridWidget5)
         self.gforce_label.setStyleSheet("font: 75 30pt \"MS Sans Serif\";\n"
-"\n"
-"")
+                                        "\n"
+                                        "")
         self.gforce_label.setObjectName("gforce_label")
         self.gridLayout_3.addWidget(self.gforce_label, 2, 1, 1, 1)
         self.main_grid.addWidget(self.gridWidget5, 0, 3, 1, 1)
         self.term_label = QtWidgets.QLabel(self.central_widget)
         self.term_label.setStyleSheet("background-color: white;\n"
-"font: 25 14pt \"Bahnschrift Light\";\n"
-"padding: 0 .5em;\n"
-"border-radius: 10px;")
-        self.term_label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+                                      "font: 25 14pt \"Bahnschrift Light\";\n"
+                                      "padding: 0 .5em;\n"
+                                      "border-radius: 10px;")
+        self.term_label.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.term_label.setObjectName("term_label")
         self.main_grid.addWidget(self.term_label, 3, 2, 1, 2)
         self.test_btn = QtWidgets.QPushButton(self.central_widget)
         self.test_btn.setStyleSheet("background-color: white;\n"
-"font: 25 14pt \"Bahnschrift Light\";\n"
-"margin: 0 2.5em;\n"
-"padding: .1em 0;")
+                                    "font: 25 14pt \"Bahnschrift Light\";\n"
+                                    "margin: 0 2.5em;\n"
+                                    "padding: .1em 0;")
         self.test_btn.setObjectName("test_btn")
         self.main_grid.addWidget(self.test_btn, 3, 1, 1, 1)
         self.horizontalLayout.addLayout(self.main_grid)
@@ -299,20 +299,27 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Mission Control Houghton"))
         self.gps_label.setText(_translate("MainWindow", "0.0, 0.0"))
         self.alt_label.setText(_translate("MainWindow", "0"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p>Altitude (ft)</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">____________</span></p></body></html>"))
-        self.label_13.setText(_translate("MainWindow", "<html><head/><body><p>Motor</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">____________</span></p></body></html>"))
+        self.label.setText(_translate("MainWindow",
+                                      "<html><head/><body><p>Altitude (ft)</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">____________</span></p></body></html>"))
+        self.label_13.setText(_translate("MainWindow",
+                                         "<html><head/><body><p>Motor</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">____________</span></p></body></html>"))
         self.bat_temp_label.setText(_translate("MainWindow", "0°F"))
         self.motor_temp_label.setText(_translate("MainWindow", "0°F"))
-        self.label_15.setText(_translate("MainWindow", "<html><head/><body><p>Battery</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">____________</span></p></body></html>"))
+        self.label_15.setText(_translate("MainWindow",
+                                         "<html><head/><body><p>Battery</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">____________</span></p></body></html>"))
         self.cubesat_temp_label.setText(_translate("MainWindow", "0°F"))
-        self.label_18.setText(_translate("MainWindow", "<html><head/><body><p>CubeSat<br/><span style=\" text-decoration: underline; color:#ffcd00;\">____________</span></p></body></html>"))
+        self.label_18.setText(_translate("MainWindow",
+                                         "<html><head/><body><p>CubeSat<br/><span style=\" text-decoration: underline; color:#ffcd00;\">____________</span></p></body></html>"))
         self.spd_label.setText(_translate("MainWindow", "0"))
-        self.label_12.setText(_translate("MainWindow", "<html><head/><body><p>Speed (kl/s)</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">_____________</span></p></body></html>"))
+        self.label_12.setText(_translate("MainWindow",
+                                         "<html><head/><body><p>Speed (kl/s)</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">_____________</span></p></body></html>"))
         self.camera_btn.setText(_translate("MainWindow", "Start"))
         self.data_btn.setText(_translate("MainWindow", "Start"))
-        self.label_6.setText(_translate("MainWindow", "<html><head/><body><p>Pressure (psi)</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">_______________</span></p></body></html>"))
+        self.label_6.setText(_translate("MainWindow",
+                                        "<html><head/><body><p>Pressure (psi)</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">_______________</span></p></body></html>"))
         self.pressure_label.setText(_translate("MainWindow", "0"))
-        self.label_9.setText(_translate("MainWindow", "<html><head/><body><p>G-Force (m/s²)</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">________________</span></p></body></html>"))
+        self.label_9.setText(_translate("MainWindow",
+                                        "<html><head/><body><p>G-Force (m/s²)</p><p><span style=\" text-decoration: underline; color:#ffcd00;\">________________</span></p></body></html>"))
         self.gforce_label.setText(_translate("MainWindow", "0"))
         self.term_label.setText(_translate("MainWindow", "Connection Secure!"))
         self.test_btn.setText(_translate("MainWindow", "Test Connection"))
@@ -320,6 +327,7 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
