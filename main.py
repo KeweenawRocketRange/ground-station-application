@@ -57,6 +57,9 @@ def main_loop():
 
 
 if __name__ == "__main__":
+    # Get graphics from graphics_main.py, graphics were created in Qt Designer
+    # In order to change the GUI you have to edit the ground_station.ui in
+    # the user-interfaces folder, you have to edit in Qt Designer
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
@@ -64,10 +67,12 @@ if __name__ == "__main__":
 
     serial_reader = SerialReader()
     rocket_data = RocketData()
+
     ui.data_btn.clicked.connect(data_btn_clicked)
     ui.camera_btn.clicked.connect(camera_btn_clicked)
     ui.test_btn.clicked.connect(serial_reader.start_serial)
 
+    # Creates a loop, calls it every 200 milliseconds
     timer = QtCore.QTimer()
     timer.start(200)
     timer.timeout.connect(main_loop)
