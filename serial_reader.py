@@ -8,6 +8,7 @@ import serial
 
 class SerialReader:
     def __init__(self):
+        self.port = 'COM5'
         self.ser = None
         self.reading_data = False
         self.camera_recording = False
@@ -19,18 +20,31 @@ class SerialReader:
     # args: RocketData object passed as reference so changes will happen to the RocketData object in main.py
     def get_data(self, rocket_data):
         if self.reading_data:
+            # Sometimes Arduino sends corrupted serial data resulting in DecodeError
+            # It's fine if ignored
             try:
                 s = self.ser.readline().decode().rstrip()   # Get and decode serial data
                 arr = s.split(';')                          # Put data in array
-                arr = [float(i) for i in arr]               # Change all values to floats
+                # Sometimes Arduino sends string with missing values resulting in ValueError
+                # It's fine if ignored
+                try:
+                    arr = [float(i) for i in arr]               # Change all values to floats
+                except ValueError:
+                    pass
 
                 # Update all of the data in the RocketData object
                 # rocket_data was passed as a reference so changes will reflect in main.py
-                rocket_data.update_data(alt=arr[0], spd=arr[1], gforce=arr[2], pressure=arr[3],
-                                        bat_temp=arr[4], cube_temp=arr[5], motor_temp=arr[6],
-                                        gps_lat=arr[7], gps_long=arr[8])
+                # Sometimes Arduino sends not enough data resulting in IndexError
+                # It's fine if ignored
+                try:
+                    rocket_data.update_data(x=arr[0], y=arr[1], z=arr[2], alt=arr[3],
+                                            gforce=arr[4], pressure=arr[5], temp=arr[6])
+                except IndexError:
+                    pass
             except UnicodeDecodeError:
                 self.msg = 'Serial data could not be decoded'
+            except Exception:
+                pass
 
     # Establish serial connection if not made already
     #
@@ -38,11 +52,11 @@ class SerialReader:
     def start_serial(self):
         try:
             if self.ser is None:
-                self.ser = serial.Serial('COM3', 9600)
-            self.msg = 'Serial connection secured at COM3 port with a baud rate of 9600'
+                self.ser = serial.Serial(self.port, 9600)
+            self.msg = f'Serial connection secured at {self.port} port with a baud rate of 9600'
             return True
         except Exception:
-            self.msg = "Serial connection failed to connect at COM3 port with a baud rate of 9600"
+            self.msg = f'Serial connection failed to connect at {self.port} port with a baud rate of 9600'
             return False
 
     # Start/Stop taking information from the Arduino

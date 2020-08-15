@@ -1,11 +1,16 @@
 from serial_reader import SerialReader
 from rocket_data import RocketData
-from graphics_main import Ui_MainWindow
+from graphics_main_new import Ui_MainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pyqtgraph as pg
+import pyqtgraph.opengl as gl
+import numpy as np
 import sys
-
+import os
 
 # Main python file to connect all parts of the ground station.
+#
+# To convert UI file to python code use command: pyuic5 -x ground_station.ui -o graphics_main.py
 #
 # Authors: Ethan Visscher
 
@@ -33,26 +38,27 @@ def test_btn_clicked():
 # Grabs serial data from rocket, saves the data, then updates the text on the GUI
 def update_text():
     if serial_reader.reading_data:
-        try:
-            serial_reader.get_data(rocket_data)
-            rocket_data.save_data()
+        serial_reader.get_data(rocket_data)
+        rocket_data.save_data()
+        rocket_data.print_data()
 
-            ui.alt_label.setText(f'{int(rocket_data.alt)}')
-            ui.spd_label.setText(f'{int(rocket_data.spd)}')
-            ui.gforce_label.setText(f'{rocket_data.gforce}')
-            ui.pressure_label.setText(f'{rocket_data.pressure}')
-            ui.bat_temp_label.setText(f'{rocket_data.bat_temp}')
-            ui.cubesat_temp_label.setText(f'{int(rocket_data.cube_temp)}°F')
-            ui.motor_temp_label.setText(f'{int(rocket_data.motor_temp)}°F')
-            ui.bat_temp_label.setText(f'{int(rocket_data.bat_temp)}°F')
-            ui.gps_label.setText(f'{rocket_data.gps_lat}, {rocket_data.gps_long}')
-        except Exception:
-            serial_reader.msg = 'Unknown error occurred while trying to retrieve data'
+        ui.spd_label.setText(f'{int(rocket_data.y)}')
+        ui.alt_label.setText(f'{int(rocket_data.alt)}')
+        ui.gforce_label.setText(f'{rocket_data.gforce}')
+        ui.pressure_label.setText(f'{int(rocket_data.pressure)}')
+        ui.temp_label.setText(f'{rocket_data.temp} °C')
+
+
+# Updates the 3d rendering of the rocket based off the rockets x, y, and z accelerations
+def update_render():
+    if serial_reader.reading_data:
+        rocket_render.rotate(20, 1, 0, 0)
 
 
 # Everything in this function will be executed once per 200 milliseconds
 def main_loop():
     update_text()
+    update_render()
     ui.term_label.setText(serial_reader.msg)
 
 
@@ -72,10 +78,50 @@ if __name__ == "__main__":
     ui.camera_btn.clicked.connect(camera_btn_clicked)
     ui.test_btn.clicked.connect(serial_reader.start_serial)
 
+    # 3D graph
+    ui.main_view = gl.GLViewWidget(ui.gridWidget5)
+    ui.main_view.setObjectName("main_graph")
+    ui.gridLayout_5.addWidget(ui.main_view, 0, 0, 1, 1)
+    ui.main_grid.addWidget(ui.gridWidget5, 0, 1, 3, 1)
+    ui.horizontalLayout.addLayout(ui.main_grid)
+    ui.main_view.show()
+
+    x_grid = gl.GLGridItem()
+    y_grid = gl.GLGridItem()
+    z_grid = gl.GLGridItem()
+    ui.main_view.addItem(x_grid)
+    ui.main_view.addItem(y_grid)
+    ui.main_view.addItem(z_grid)
+    x_grid.rotate(90, 0, 1, 0)
+    y_grid.rotate(90, 1, 0, 0)
+
+    verts = np.array([
+        [0, 0, 10],
+        [2, 0, 0],
+        [1, 2, 0],
+        [1, 1, 1]
+    ])
+    faces = np.array([
+        [0, 1, 2],
+        [0, 1, 3],
+        [0, 2, 3],
+        [1, 2, 3]
+    ])
+    colors = np.array([
+        [1, 0, 0, 0.3],
+        [0, 1, 0, 0.3],
+        [0, 0, 1, 0.3],
+        [1, 1, 0, 0.3]
+    ])
+#    rocket_mesh = gl.GLMeshItem(vertexes=verts, faces=faces, faceColors=colors)
+    rocket_mesh = gl.MeshData.cylinder(20, 20, 2, 8)
+    rocket_render = gl.GLMeshItem(meshdata=rocket_mesh, smooth=True, shader='shaded', glOptions='opaque')
+    ui.main_view.addItem(rocket_render)
+
     # Creates a loop, calls it every 200 milliseconds
     timer = QtCore.QTimer()
-    timer.start(200)
+    timer.start(50)
     timer.timeout.connect(main_loop)
 
-    MainWindow.showFullScreen()
+    MainWindow.show()
     sys.exit(app.exec_())
